@@ -1,0 +1,6 @@
+qiskit
+numpy
+matplotlib
+torch
+seaborn
+pylatexenc
