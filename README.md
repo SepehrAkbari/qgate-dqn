@@ -4,7 +4,9 @@ This repository implements a Deep Reinforcement Learning (RL) framework to optim
 
 ## Approach
 
+This project frames the quantum circuit design problem as a Markov Decision Process (MDP) solved using a Deep Q-Network (DQN) agent. The primary technical challenge is managing the exponential complexity of the quantum state space. We mitigate this by representing the environment state as a non-exponentially scaling feature vector, the expectation values of $3N$ single-qubit Pauli operators ($X$, $Y$, $Z$ for each of the $N$ qubits). This compact representation allows the DQN's Q-network to learn the appropriate policy efficiently. Training stability is ensured through the use of Experience Replay and Double DQN techniques, including a separate Target Network for calculating stable loss targets.
 
+The training objective transitions from State Synthesis (matching a target state vector, in our case $|GHZ\rangle$) to the more challenging Unitary Synthesis (matching a target operator, in our case a Quantum Fourier Transform $U_{QFT}$). This requires switching the reward metric from State Fidelity to Unitary Fidelity. Crucially, we employ Reward Shaping by giving a proportional reward for any step that increases fidelity, along with a penalty for circuit depth. This dense feedback mechanism is for guiding the agent to discover minimal-depth circuits that achieve near-perfect synthesis of complex operations.
 
 ## Usage
 
