@@ -1,4 +1,4 @@
-from config import *
+from ..setup import *
 
 class QNetwork(nn.Module):
     def __init__(self, state_dim, action_dim):
@@ -20,6 +20,7 @@ class QNetwork(nn.Module):
         x = self.relu(self.fc1(state))
         x = self.relu(self.fc2(x))
         return self.fc3(x)
+    
     
 Experience = namedtuple('Experience', ('state', 'action', 'reward', 'next_state', 'done'))
 
@@ -57,7 +58,8 @@ class ReplayBuffer:
 
     def __len__(self):
         return len(self.memory)
-
+    
+    
 class DQNAgent:
     def __init__(self, state_dim, action_dim, device, gamma, lr, capacity):
         '''

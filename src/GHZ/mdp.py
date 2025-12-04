@@ -1,7 +1,7 @@
-from config import *
+from ..setup import *
 
-class QuantumCircuitEnv:
-    def __init__(self, n_qubits, target_state, possible_actions, max_gates=20):
+class QuantumStateCircuitEnv:
+    def __init__(self, n_qubits, target_state, possible_actions, REWARD_GATE_PENALTY, REWARD_SUCCESS, FIDELITY_THRESHOLD, REWARD_FIDELITY_WEIGHT, max_gates=20):
         '''
         Initializes the Quantum Circuit MDP environment.
         '''
@@ -16,10 +16,10 @@ class QuantumCircuitEnv:
         
         self.last_fidelity = 0.0
         
-        self.REWARD_GATE_PENALTY = -0.5
-        self.REWARD_SUCCESS = 10.0
-        self.FIDELITY_THRESHOLD = 0.999
-        self.REWARD_FIDELITY_WEIGHT = 5.0
+        self.REWARD_GATE_PENALTY = REWARD_GATE_PENALTY
+        self.REWARD_SUCCESS = REWARD_SUCCESS
+        self.FIDELITY_THRESHOLD = FIDELITY_THRESHOLD
+        self.REWARD_FIDELITY_WEIGHT = REWARD_FIDELITY_WEIGHT
         
         self.reset()
     
