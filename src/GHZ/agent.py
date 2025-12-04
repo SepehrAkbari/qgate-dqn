@@ -114,3 +114,5 @@ class DQNAgent:
         self.optimizer.step()
         
         return loss.item()
+    
+print("hello")
