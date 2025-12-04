@@ -33,7 +33,7 @@ python -m src.<SOURCE_NAME>.train
 python -m src.<SOURCE_NAME>.infer
 ```
 
-Additionally, both sections have a corresponding Jupyter notebook in the [notebook](./notebook/) directory that walks through the implementation details and evaluation of the trained agents.
+Additionally, both sections have a corresponding Jupyter notebook in the [notebook](./notebook/) directory that walks through the implementation details and evaluation of the trained agents. Note that the operator synthesis is dependent on the state synthesis implementation, so it is recommended to run the state synthesis notebook first.
 
 ## Contributing
 
